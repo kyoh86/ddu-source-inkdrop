@@ -26,11 +26,13 @@ export class Source extends BaseSource<Params, ActionData> {
 
           const tags = await client.tags.list<TagDoc>();
           controller.enqueue(tags.map((tag) => {
+            const encoded = encodeURIComponent(tag.name);
             return {
               word: tag.name,
               action: {
                 ...tag,
-                path: `inkdrop://notes-list;tagId=${tag._id}`,
+                path:
+                  `inkdrop://notes-list;tagId=${tag._id}&tagName=${encoded}`,
               },
             };
           }));

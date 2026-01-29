@@ -85,6 +85,12 @@ inkdrop_notes
     {tagId} (string)
         Filter by tag id.
 
+    {statuses} (list)
+        Filter by note status (e.g. ["active", "onHold"]).
+
+    {pinned} (boolean)
+        Filter pinned notes.
+
     It generates items for a kind "file" with the path for denops-inkdrop.vim.
 
 inkdrop_books
@@ -96,6 +102,11 @@ inkdrop_tags
     Tags in Inkdrop. It accepts no parameters.
 
     It generates items for a kind "file" with the path for denops-inkdrop.vim.
+
+inkdrop_status
+    Status menu for Inkdrop notes. It accepts no parameters.
+
+    It generates items for a kind "inkdrop_menu".
 
 
 ==============================================================================

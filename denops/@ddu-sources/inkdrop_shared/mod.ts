@@ -1,10 +1,10 @@
-import xdg from "jsr:@404wolf/xdg-portable@^0.1.0";
-import { join } from "jsr:@std/path@^1.1.4";
-import { exists } from "jsr:@std/fs@^1.0.21";
-import { parse } from "jsr:@std/toml@^1.0.11";
-import { is, maybe } from "jsr:@core/unknownutil@^4.3.0";
+import xdg from "@404wolf/xdg-portable";
+import { join } from "@std/path";
+import { exists } from "@std/fs";
+import { parse } from "@std/toml";
+import { is, maybe } from "@core/unknownutil";
 
-import { InkdropClient } from "jsr:@kyoh86/inkdrop-local@^0.1.1";
+import { InkdropClient } from "@kyoh86/inkdrop-local";
 
 export type State = {
   baseUrl: string;

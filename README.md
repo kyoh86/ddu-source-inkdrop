@@ -14,6 +14,7 @@ Ddu sources for Inkdrop Local HTTP Server.
 - `inkdrop_notes`
 - `inkdrop_books`
 - `inkdrop_tags`
+- `inkdrop_status`
 
 ## Setup
 
@@ -37,8 +38,14 @@ call ddu#start({
 - `descending` (boolean): sort order (default: true)
 - `bookId` (string): filter by notebook id
 - `tagId` (string): filter by tag id
+- `statuses` (string[]): filter by status (e.g. `{"active", "onHold"}`)
+- `pinned` (boolean): filter pinned notes
 
 `inkdrop_books` / `inkdrop_tags` take no parameters.
+`inkdrop_status` takes no parameters.
+
+`inkdrop_status` uses the `inkdrop_menu` kind and opens `inkdrop_notes` with
+`push = true`.
 
 ## License
 

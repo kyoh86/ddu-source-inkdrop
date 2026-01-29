@@ -15,6 +15,8 @@ type Params = {
   descending: boolean;
   bookId: string;
   tagId: string;
+  statuses: string[];
+  pinned: boolean;
 };
 
 export class Source extends BaseSource<Params, ActionData> {
@@ -50,6 +52,14 @@ export class Source extends BaseSource<Params, ActionData> {
               note.tags?.includes(args.sourceParams.tagId)
             );
           }
+          if (args.sourceParams.statuses.length > 0) {
+            filtered = filtered.filter((note) =>
+              args.sourceParams.statuses.includes(note.status ?? "none")
+            );
+          }
+          if (args.sourceParams.pinned) {
+            filtered = filtered.filter((note) => note.pinned);
+          }
 
           controller.enqueue(filtered.map((note) => {
             const title = note.title ?? "(untitled)";
@@ -79,6 +89,8 @@ export class Source extends BaseSource<Params, ActionData> {
       descending: true,
       bookId: "",
       tagId: "",
+      statuses: [],
+      pinned: false,
     };
   }
 }

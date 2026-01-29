@@ -26,11 +26,13 @@ export class Source extends BaseSource<Params, ActionData> {
 
           const books = await client.books.list<BookDoc>();
           controller.enqueue(books.map((book) => {
+            const encoded = encodeURIComponent(book.name);
             return {
               word: book.name,
               action: {
                 ...book,
-                path: `inkdrop://notes-list;bookId=${book._id}`,
+                path:
+                  `inkdrop://notes-list;bookId=${book._id}&bookName=${encoded}`,
               },
             };
           }));

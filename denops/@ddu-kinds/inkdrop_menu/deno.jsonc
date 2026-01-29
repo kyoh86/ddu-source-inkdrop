@@ -1,0 +1,9 @@
+{
+  "exports": {
+    ".": "main.ts"
+  },
+  "imports": {
+    "@core/unknownutil": "jsr:@core/unknownutil@^4.3.0",
+    "@shougo/ddu-vim": "jsr:@shougo/ddu-vim@^11.1.0"
+  }
+}
