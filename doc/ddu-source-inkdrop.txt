@@ -1,0 +1,109 @@
+                                                     *ddu-source-inkdrop.txt*
+ddu.vim source collects Inkdrop notes and resources.
+
+Author: kyoh86 <me@kyoh86.dev>
+License: MIT License
+URL: https://github.com/kyoh86/ddu-source-inkdrop
+
+
+==============================================================================
+                                                *ddu-source-inkdrop-contents*
+Contents ~
+
+Introduction                |ddu-source-inkdrop-introduction|
+Install                     |ddu-source-inkdrop-install|
+Examples                    |ddu-source-inkdrop-examples|
+Sources                     |ddu-source-inkdrop-sources|
+About                       |ddu-source-inkdrop-about|
+
+
+==============================================================================
+                                             *ddu-source-inkdrop-introduction*
+Introduction ~
+
+ddu.vim source collects Inkdrop notes and resources.
+
+This source generates items for a kind "file".
+
+
+==============================================================================
+                                                 *ddu-source-inkdrop-install*
+Install ~
+
+It depends on "|denops-inkdrop.vim|", "|ddu|.vim", "|denops.vim|" and
+"|ddu-kind-file|".
+
+https://github.com/kyoh86/denops-inkdrop.vim
+https://github.com/Shougo/ddu.vim
+https://github.com/vim-denops/denops.vim
+https://github.com/Shougo/ddu-kind-file
+
+
+==============================================================================
+                                                *ddu-source-inkdrop-examples*
+Examples ~
+>
+    " Use inkdrop_notes source.
+    call ddu#start({
+        \   'sources': [{
+        \     'name': 'inkdrop_notes',
+        \     'params': { 'keyword': 'foo' }
+        \   }],
+        \   'kindOptions': { 'file': { 'defaultAction': 'edit' } }
+        \ })
+<
+
+==============================================================================
+                                                 *ddu-source-inkdrop-sources*
+Sources ~
+
+inkdrop_notes
+    Notes in Inkdrop. It accepts 7 parameters:
+
+    {keyword} (string)
+        Search keyword.
+
+    {limit} (number)
+        Paging size.
+        Default: 100.
+
+    {skip} (number)
+        Paging offset.
+        Default: 0.
+
+    {sort} ("updatedAt" | "createdAt" | "title")
+        Sort key.
+        Default: "updatedAt".
+
+    {descending} (boolean)
+        Sort order.
+        Default: v:true.
+
+    {bookId} (string)
+        Filter by notebook id.
+
+    {tagId} (string)
+        Filter by tag id.
+
+    It generates items for a kind "file" with the path for denops-inkdrop.vim.
+
+inkdrop_books
+    Notebooks in Inkdrop. It accepts no parameters.
+
+    It generates items for a kind "file" with the path for denops-inkdrop.vim.
+
+inkdrop_tags
+    Tags in Inkdrop. It accepts no parameters.
+
+    It generates items for a kind "file" with the path for denops-inkdrop.vim.
+
+
+==============================================================================
+                                                    *ddu-source-inkdrop-about*
+About ~
+
+This source reads credentials from denops-inkdrop.vim state file.
+Run :InkdropLogin before using these sources.
+
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl
